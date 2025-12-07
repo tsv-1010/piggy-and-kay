@@ -8,7 +8,8 @@ import { Sparkles, Heart, Star, Check, Instagram, Twitter, Facebook, Youtube, Do
 
 // --- CONFIGURATION ---
 const GOOGLE_SHEET_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzdi0VNKpXWY50NO2UHExKTs5k1jMnMuxbw67Kx2LuAowWIU7AFHrGXxF1IAdXPw5LU/exec"; 
-const BACKEND_API_URL = "http://localhost:3001/api"; 
+// Use environment variable for backend API URL, default to localhost for development
+const BACKEND_API_URL = import.meta.env.VITE_BACKEND_API_URL || "http://localhost:3001/api"; 
 
 const FONTS = {
   head: "font-['Comic_Neue',_'Bubblegum_Sans',_sans-serif]",
@@ -779,14 +780,24 @@ function SuccessView({ userData, supporterNumber }) {
         </button>
 
         <div className="flex gap-4 w-full justify-center">
-            <button className="flex-1 flex items-center justify-center gap-2 bg-[#1DA1F2] text-white px-4 py-3 rounded-full font-bold shadow-lg hover:bg-[#1a91da] transition transform hover:scale-105 active:scale-95 text-sm">
-            <Twitter size={18} />
-            <span>Tweet</span>
-            </button>
-            <button className="flex-1 flex items-center justify-center gap-2 bg-[#4267B2] text-white px-4 py-3 rounded-full font-bold shadow-lg hover:bg-[#365899] transition transform hover:scale-105 active:scale-95 text-sm">
-            <Facebook size={18} />
-            <span>Share</span>
-            </button>
+            <a 
+              href={`https://twitter.com/intent/tweet?text=${encodeURIComponent("I just pre-ordered my copy of \"Piggy & Kay: A Winter Sparkle.\" I can't wait to read this with the kids!")}&url=${encodeURIComponent("https://piggy-and-kay.vercel.app")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 bg-[#1DA1F2] text-white px-4 py-3 rounded-full font-bold shadow-lg hover:bg-[#1a91da] transition transform hover:scale-105 active:scale-95 text-sm cursor-pointer"
+            >
+              <Twitter size={18} />
+              <span>Tweet</span>
+            </a>
+            <a 
+              href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent("https://piggy-and-kay.vercel.app")}&quote=${encodeURIComponent("I just pre-ordered my copy of \"Piggy & Kay: A Winter Sparkle.\" I can't wait to read this with the kids!")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 bg-[#4267B2] text-white px-4 py-3 rounded-full font-bold shadow-lg hover:bg-[#365899] transition transform hover:scale-105 active:scale-95 text-sm cursor-pointer"
+            >
+              <Facebook size={18} />
+              <span>Share</span>
+            </a>
         </div>
       </div>
     </div>
