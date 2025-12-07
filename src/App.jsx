@@ -148,7 +148,7 @@ const AuthorSection = () => {
             <div className="w-32 h-32 md:w-48 md:h-48 shrink-0 relative">
                 <div className="absolute inset-0 bg-yellow-200 rounded-full blur-md opacity-50 animate-pulse"></div>
                 <img 
-                    src="/api/placeholder/200/200" 
+                    src="/images/amanda.jpg" 
                     alt="Author" 
                     className="w-full h-full object-cover rounded-full border-4 border-white shadow-md relative z-10" 
                 />
@@ -163,7 +163,7 @@ const AuthorSection = () => {
                     Inspired by Real Magic
                 </h3>
                 <p className="text-slate-600 leading-relaxed italic">
-                    "I wrote Piggy & Kay because I wanted to capture that fleeting moment of childhood where a stuffed animal isn't just a toy—it's a best friend, a protector, and a guide. In a world that moves too fast, Piggy reminds us all to slow down and find the sparkle within."
+                    "I wrote Piggy & Kay to explore the wisdome of looking inward through the whimsical eyes of a child, where a stuffed animal isn't just a toy, but a beloved friend that helps make sense of of things. In a rapidly evolving world overflowing with information, Piggy reminds us all that amidst all the noise, our inner truth remains peaceful. We simply must be brave enough to slow down and listen to the sparkle within."
                 </p>
                 <div className="pt-4">
                     <p className="font-handwriting text-2xl text-slate-500">- Amanda & The Real Piggy</p>
