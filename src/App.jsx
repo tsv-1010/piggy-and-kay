@@ -8,7 +8,7 @@ import { Sparkles, Heart, Star, Check, Instagram, Twitter, Facebook, Youtube, Do
 
 // --- CONFIGURATION ---
 const GOOGLE_SHEET_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzdi0VNKpXWY50NO2UHExKTs5k1jMnMuxbw67Kx2LuAowWIU7AFHrGXxF1IAdXPw5LU/exec"; 
-const STRIPE_CHECKOUT_URL = "#"; 
+const BACKEND_API_URL = "http://localhost:3001/api"; 
 
 const FONTS = {
   head: "font-['Comic_Neue',_'Bubblegum_Sans',_sans-serif]",
@@ -397,6 +397,8 @@ export default function App() {
 function PreOrderView({ userData, toSuccess }) {
   const [quantity, setQuantity] = useState(1);
   const [donation, setDonation] = useState(0);
+  const [isCheckingOut, setIsCheckingOut] = useState(false);
+  const [checkoutError, setCheckoutError] = useState(null);
   const basePrice = 20;
 
   const getDiscount = (qty) => {
@@ -409,6 +411,38 @@ function PreOrderView({ userData, toSuccess }) {
   const subtotal = quantity * basePrice;
   const discountAmount = subtotal * discountRate;
   const total = (subtotal - discountAmount) + Number(donation);
+
+  // Handle checkout: call backend to create Stripe session
+  const handleCheckout = async (e) => {
+    e.preventDefault();
+    setIsCheckingOut(true);
+    setCheckoutError(null);
+
+    try {
+      const response = await fetch(`${BACKEND_API_URL}/create-checkout-session`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          quantity,
+          donation: Number(donation)
+        })
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to create checkout session');
+      }
+
+      const data = await response.json();
+      
+      // Redirect to Stripe Checkout
+      window.location.href = data.sessionUrl;
+    } catch (error) {
+      console.error('Checkout error:', error);
+      setCheckoutError(error.message || 'Something went wrong. Please try again.');
+      setIsCheckingOut(false);
+    }
+  };
 
   return (
     <div className="animate-in fade-in zoom-in-95 duration-500 max-w-2xl mx-auto w-full pt-10">
@@ -535,15 +569,23 @@ function PreOrderView({ userData, toSuccess }) {
           </div>
 
           {/* Checkout Button */}
-          <a 
-            href={STRIPE_CHECKOUT_URL}
-            className="w-full bg-gradient-to-r from-pink-400 to-purple-400 hover:from-pink-300 hover:to-purple-300 text-white py-4 rounded-xl font-bold text-lg shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-between px-6 group cursor-pointer block text-center no-underline"
+          <button 
+            onClick={handleCheckout}
+            disabled={isCheckingOut}
+            className="w-full bg-gradient-to-r from-pink-400 to-purple-400 hover:from-pink-300 hover:to-purple-300 disabled:from-gray-300 disabled:to-gray-300 text-white py-4 rounded-xl font-bold text-lg shadow-xl transform hover:-translate-y-1 transition-all duration-300 flex items-center justify-between px-6 group cursor-pointer no-underline"
           >
-            <span>Pre-order Now</span>
+            <span>{isCheckingOut ? 'Creating checkout...' : 'Pre-order Now'}</span>
             <span className="bg-white/20 px-3 py-1 rounded-lg text-white font-mono group-hover:bg-white/30 transition-colors">
               ${total.toFixed(2)}
             </span>
-          </a>
+          </button>
+
+          {/* Error Message */}
+          {checkoutError && (
+            <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg text-sm">
+              {checkoutError}
+            </div>
+          )}
           
           <div className="flex justify-center gap-6 opacity-60 hover:opacity-100 transition-opacity">
             <Instagram size={20} className="cursor-pointer hover:text-pink-600 transition-colors" />
