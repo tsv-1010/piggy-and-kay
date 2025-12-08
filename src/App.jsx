@@ -8,7 +8,8 @@ import { Sparkles, Heart, Star, Check, Instagram, Twitter, Facebook, Youtube, Do
 
 // --- CONFIGURATION ---
 const GOOGLE_SHEET_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzdi0VNKpXWY50NO2UHExKTs5k1jMnMuxbw67Kx2LuAowWIU7AFHrGXxF1IAdXPw5LU/exec"; 
-const BACKEND_API_URL = "http://localhost:3001/api"; 
+// Use environment variable for backend API URL, defaults to same-origin /api for production
+const BACKEND_API_URL = import.meta.env.VITE_BACKEND_API_URL || "/api"; 
 
 const FONTS = {
   head: "font-['Comic_Neue',_'Bubblegum_Sans',_sans-serif]",
