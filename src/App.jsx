@@ -8,8 +8,7 @@ import { Sparkles, Heart, Star, Check, Instagram, Twitter, Facebook, Youtube, Do
 
 // --- CONFIGURATION ---
 const GOOGLE_SHEET_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbzdi0VNKpXWY50NO2UHExKTs5k1jMnMuxbw67Kx2LuAowWIU7AFHrGXxF1IAdXPw5LU/exec"; 
-// Use environment variable for backend API URL, default to localhost for development
-const BACKEND_API_URL = import.meta.env.VITE_BACKEND_API_URL || "http://localhost:3001/api"; 
+const BACKEND_API_URL = "http://localhost:3001/api"; 
 
 const FONTS = {
   head: "font-['Comic_Neue',_'Bubblegum_Sans',_sans-serif]",
@@ -35,8 +34,6 @@ const RibbonHeader = () => {
           </textPath>
         </text>
       </svg>
-      <div className="absolute top-1/2 left-10 animate-pulse"><Star size={24} className="text-white fill-white drop-shadow-sm" /></div>
-      <div className="absolute top-10 right-16 animate-pulse" style={{animationDelay: '1s'}}><Sparkles size={20} className="text-pink-200" /></div>
     </div>
   );
 };
@@ -741,15 +738,15 @@ function SuccessView({ userData, supporterNumber }) {
              </div>
           </div>
 
-          <div className="bg-yellow-50 border border-yellow-200 text-yellow-800 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
-            Founding Member
+          <div className="bg-green-500 border border-green-600 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4">
+            Official Sparkle Holder
           </div>
           <h3 className={`${FONTS.head} text-3xl font-bold text-slate-800 mb-1`}>
             {userData.firstName} {userData.lastName}
           </h3>
           <p className="text-slate-400 text-sm mb-6">Supporter #{supporterNumber}</p>
           <div className="text-xs text-slate-500 italic border-t border-slate-100 pt-4 w-full">
-            "You now own a tiny piece of the magic forever."
+            "You are now a part of Piggy & Kay's Sparkle Club where magic lives forever."
           </div>
         </div>
       </div>
