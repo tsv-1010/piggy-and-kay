@@ -496,21 +496,15 @@ function PreOrderView({ userData, toSuccess }) {
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-300 via-purple-300 to-yellow-300" />
           
           <div className="relative inline-block transform group-hover:scale-105 transition-transform duration-500 perspective-1000">
-             <div className="w-40 md:w-48 h-56 md:h-64 bg-[#D32F2F] rounded-r-lg shadow-2xl flex items-center justify-center relative z-10 border-l-4 border-[#B71C1C]">
-                <div className="text-center text-white p-4">
-                   <h3 className={`${FONTS.head} text-2xl leading-none mb-2`}>Piggy & Kay</h3>
-                   <div className="w-12 h-12 bg-white/20 rounded-full mx-auto my-4 backdrop-blur-sm flex items-center justify-center">
-                     <Star className="text-yellow-300 fill-yellow-300 animate-spin-slow" />
-                   </div>
-                   <p className="text-xs font-serif italic opacity-80">The Sparkle Within</p>
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent pointer-events-none" />
-             </div>
-             <div className="absolute top-1 right-2 w-4 h-[13.5rem] md:h-[15.5rem] bg-white rounded-r-sm shadow-sm z-0 transform translate-x-2" />
+             <img 
+               src="/images/P&K A Winter Sparkle.png" 
+               alt="Piggy & Kay: A Winter Sparkle Book Cover"
+               className="w-40 md:w-48 h-56 md:h-64 object-cover rounded-lg shadow-2xl relative z-10"
+             />
           </div>
           
           <div className="mt-6">
-            <h3 className="text-xl font-bold text-slate-800">Piggy & Kay: The Sparkle Within</h3>
+            <h3 className="text-xl font-bold text-slate-800">Piggy & Kay: A Winter Sparkle</h3>
             <p className="text-slate-500 text-sm">Hardcover First Edition • Coming Dec 2025</p>
           </div>
         </div>
