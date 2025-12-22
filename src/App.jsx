@@ -23,8 +23,8 @@ const RibbonHeader = () => {
 
   useEffect(() => {
     const updateFontSize = () => {
-      // Mobile (< 768px): 48px, Tablet (≥ 768px): 72px
-      setFontSize(window.innerWidth < 768 ? 48 : 72);
+      // Mobile (< 768px): 72px, Tablet (≥ 768px): 72px
+      setFontSize(window.innerWidth < 768 ? 72 : 72);
     };
     updateFontSize();
     window.addEventListener('resize', updateFontSize);
