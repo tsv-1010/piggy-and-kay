@@ -33,7 +33,7 @@ const RibbonHeader = () => {
 
   return (
     <div className="relative w-full max-w-xl mx-auto -mb-4 md:-mb-8 z-20 hover:scale-105 transition-transform duration-500">
-      <svg viewBox="0 0 1000 200" className="w-full h-auto overflow-visible">
+      <svg viewBox="0 0 1000 250" className="w-full h-auto overflow-visible">
         <defs>
           <linearGradient id="blushGradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#FFB6C1" /> 
@@ -219,6 +219,8 @@ export default function App() {
     }
     setIsSubmitting(false);
     setView('preorder');
+    // Scroll to top of page on form submit
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const scrollToForm = () => {
@@ -358,7 +360,7 @@ export default function App() {
             </div>
 
             {/* MOBILE STICKY CTA */}
-            <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/90 backdrop-blur-md border-t border-pink-100 md:hidden z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+            <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/90 backdrop-blur-md border-t border-pink-100 md:hidden z-50 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] pointer-events-auto">
                 <button 
                   type="submit"
                   form="join-form"
