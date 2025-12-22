@@ -23,8 +23,8 @@ const RibbonHeader = () => {
 
   useEffect(() => {
     const updateFontSize = () => {
-      // Mobile (< 768px): 40px, Tablet (≥ 768px): 72px
-      setFontSize(window.innerWidth < 768 ? 40 : 72);
+      // Mobile (< 768px): 48px, Tablet (≥ 768px): 72px
+      setFontSize(window.innerWidth < 768 ? 48 : 72);
     };
     updateFontSize();
     window.addEventListener('resize', updateFontSize);
@@ -33,7 +33,7 @@ const RibbonHeader = () => {
 
   return (
     <div className="relative w-full max-w-xl mx-auto -mb-4 md:-mb-8 z-20 hover:scale-105 transition-transform duration-500">
-      <svg viewBox="0 0 600 140" className="w-full h-auto overflow-visible">
+      <svg viewBox="0 0 600 200" className="w-full h-auto overflow-visible">
         <defs>
           <linearGradient id="blushGradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#FFB6C1" /> 
