@@ -19,6 +19,18 @@ const FONTS = {
 // --- COMPONENTS ---
 
 const RibbonHeader = () => {
+  const [fontSize, setFontSize] = useState(48);
+
+  useEffect(() => {
+    const updateFontSize = () => {
+      // Mobile (< 768px): 40px, Tablet (≥ 768px): 72px
+      setFontSize(window.innerWidth < 768 ? 40 : 72);
+    };
+    updateFontSize();
+    window.addEventListener('resize', updateFontSize);
+    return () => window.removeEventListener('resize', updateFontSize);
+  }, []);
+
   return (
     <div className="relative w-full max-w-xl mx-auto -mb-4 md:-mb-8 z-20 hover:scale-105 transition-transform duration-500">
       <svg viewBox="0 0 600 140" className="w-full h-auto overflow-visible">
@@ -29,7 +41,7 @@ const RibbonHeader = () => {
           </linearGradient>
         </defs>
         <path id="ribbon-curve" d="M 50,100 C 200,60 400,140 550,80" fill="transparent" />
-        <text className={`${FONTS.head} font-bold tracking-wider drop-shadow-md`} style={{ fontSize: '72px', filter: 'drop-shadow(2px 2px 2px rgba(0,0,0,0.1))' }}>
+        <text className={`${FONTS.head} font-bold tracking-wider drop-shadow-md`} style={{ fontSize: `${fontSize}px`, filter: 'drop-shadow(2px 2px 2px rgba(0,0,0,0.1))' }}>
           <textPath href="#ribbon-curve" startOffset="50%" textAnchor="middle">
             <tspan fill="url(#blushGradient)">Piggy & Kay</tspan>
           </textPath>
