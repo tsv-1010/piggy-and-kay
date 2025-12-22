@@ -174,7 +174,7 @@ const AuthorSection = () => {
                     Inspired by Real Magic
                 </h3>
                 <p className="text-slate-600 leading-relaxed italic">
-                    "I wrote Piggy & Kay to explore the wisdome of looking inward through the whimsical eyes of a child, where a stuffed animal isn't just a toy, but a beloved friend that helps make sense of of things. In a rapidly evolving world overflowing with information, Piggy reminds us all that amidst all the noise, our inner truth remains peaceful. We simply must be brave enough to slow down and listen to the sparkle within."
+                    "I wrote Piggy & Kay to explore the wisdom of looking inward through the whimsical eyes of a child, where a stuffed animal isn't just a toy, but a beloved friend that helps make sense of things. In a rapidly evolving world overflowing with information, Piggy reminds us all that amidst all the noise, our inner truth remains peaceful. We simply must be brave enough to slow down and listen to the sparkle within."
                 </p>
                 <div className="pt-4">
                     <p className="font-handwriting text-2xl text-slate-500">- Amanda & The Real Piggy</p>
