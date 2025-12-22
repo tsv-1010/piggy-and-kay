@@ -31,22 +31,30 @@ const RibbonHeader = () => {
     return () => window.removeEventListener('resize', updateFontSize);
   }, []);
 
+
   return (
-    <div className="relative w-full max-w-xl mx-auto -mb-4 md:-mb-8 z-20 hover:scale-105 transition-transform duration-500">
-      <svg viewBox="0 0 1400 350" className="w-full h-auto overflow-visible">
-        <defs>
-          <linearGradient id="blushGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#FFB6C1" /> 
-            <stop offset="100%" stopColor="#FFFFFF" /> 
-          </linearGradient>
-        </defs>
-        <path id="ribbon-curve" d="M 50,100 C 500,60 900,140 1350,80" fill="transparent" />
-        <text className={`${FONTS.head} font-bold tracking-wider drop-shadow-md`} style={{ fontSize: `${fontSize}px`, filter: 'drop-shadow(2px 2px 2px rgba(0,0,0,0.1))' }}>
-          <textPath href="#ribbon-curve" startOffset="50%" textAnchor="middle">
-            <tspan fill="url(#blushGradient)">Piggy & Kay</tspan>
-          </textPath>
-        </text>
-      </svg>
+    <div className="relative w-full max-w-4xl mx-auto -mb-4 md:-mb-8 z-20">
+      <div className="flex justify-center items-center relative group">
+        <h1 
+          className={`${FONTS.head} font-bold tracking-wider text-center drop-shadow-lg`}
+          style={{
+            fontSize: `${fontSize}px`,
+            backgroundImage: 'linear-gradient(to right, #FFB6C1, #FFFFFF)',
+            backgroundClip: 'text',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            filter: 'drop-shadow(2px 2px 2px rgba(0,0,0,0.1))'
+          }}
+        >
+          Piggy & Kay
+        </h1>
+        
+        {/* Sparkle effects around the text */}
+        <div className="absolute -top-8 left-1/4 w-2 h-2 bg-yellow-300 rounded-full animate-pulse" style={{animationDelay: '0s'}}></div>
+        <div className="absolute -top-6 right-1/4 w-1.5 h-1.5 bg-yellow-300 rounded-full animate-pulse" style={{animationDelay: '0.5s'}}></div>
+        <div className="absolute top-2 right-0 w-1 h-1 bg-yellow-200 rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-0 left-0 w-1.5 h-1.5 bg-yellow-300 rounded-full animate-pulse" style={{animationDelay: '1.5s'}}></div>
+      </div>
     </div>
   );
 };
@@ -480,7 +488,7 @@ function PreOrderView({ userData, toSuccess }) {
         </h2>
         
         <p className="text-slate-600 font-medium px-4 text-lg max-w-lg mx-auto leading-relaxed">
-          You have joined a community of <span className="text-pink-600 font-bold">2,347</span> parents waiting for <span className="font-bold underline decoration-black decoration-2 underline-offset-2">Piggy & Kay: The Sparkle Within</span>.
+          You have joined a community of <span className="text-pink-600 font-bold">2,347</span> parents waiting for <span className="font-bold underline decoration-black decoration-2 underline-offset-2">Piggy & Kay: A Winter Sparkle</span>.
         </p>
 
         <div className="pt-2">
@@ -508,7 +516,7 @@ function PreOrderView({ userData, toSuccess }) {
           
           <div className="mt-6">
             <h3 className="text-xl font-bold text-slate-800">Piggy & Kay: A Winter Sparkle</h3>
-            <p className="text-slate-500 text-sm">Hardcover First Edition • Coming Dec 2025</p>
+            <p className="text-slate-500 text-sm">Hardcover First Edition • Coming Jan 2026</p>
           </div>
         </div>
 
