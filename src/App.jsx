@@ -33,14 +33,14 @@ const RibbonHeader = () => {
 
   return (
     <div className="relative w-full max-w-xl mx-auto -mb-4 md:-mb-8 z-20 hover:scale-105 transition-transform duration-500">
-      <svg viewBox="0 0 600 200" className="w-full h-auto overflow-visible">
+      <svg viewBox="0 0 800 200" className="w-full h-auto overflow-visible">
         <defs>
           <linearGradient id="blushGradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" stopColor="#FFB6C1" /> 
             <stop offset="100%" stopColor="#FFFFFF" /> 
           </linearGradient>
         </defs>
-        <path id="ribbon-curve" d="M 50,100 C 200,60 400,140 550,80" fill="transparent" />
+        <path id="ribbon-curve" d="M 50,100 C 300,60 500,140 750,80" fill="transparent" />
         <text className={`${FONTS.head} font-bold tracking-wider drop-shadow-md`} style={{ fontSize: `${fontSize}px`, filter: 'drop-shadow(2px 2px 2px rgba(0,0,0,0.1))' }}>
           <textPath href="#ribbon-curve" startOffset="50%" textAnchor="middle">
             <tspan fill="url(#blushGradient)">Piggy & Kay</tspan>
