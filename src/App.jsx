@@ -497,9 +497,10 @@ function PreOrderView({ userData, toSuccess }) {
           
           <div className="relative inline-block transform group-hover:scale-105 transition-transform duration-500 perspective-1000">
              <img 
-               src="/images/PK AWinter Sparkle.png" 
+               src="/images/PK%20A%20Winter%20Sparkle.png" 
                alt="Piggy & Kay: A Winter Sparkle Book Cover"
                className="w-40 md:w-48 h-56 md:h-64 object-cover rounded-lg shadow-2xl relative z-10"
+               onError={() => console.log('Image failed to load')}
              />
           </div>
           
