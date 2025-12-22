@@ -313,7 +313,7 @@ export default function App() {
                         Be the first to know.
                     </h3>
                     <p className="text-slate-600">
-                        Piggy & Kay arrive this holiday season. Join the Sparkle Club to get early access to the First Edition.
+                        Piggy & Kay arrive January 2026. Join the Sparkle Club to get early access to the First Edition.
                     </p>
                 </div>
 

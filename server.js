@@ -76,9 +76,9 @@ app.post('/api/create-checkout-session', async (req, res) => {
         price_data: {
           currency: 'usd',
           product_data: {
-            name: `Piggy & Kay: The Sparkle Within (${qty} ${qty === 1 ? 'copy' : 'copies'})`,
+            name: `Piggy & Kay: A Winter Sparkle (${qty} ${qty === 1 ? 'copy' : 'copies'})`,
             description: `Pre-order ${qty} book${qty > 1 ? 's' : ''}${discount > 0 ? ` - ${qty >= 5 ? '15%' : '10%'} discount applied` : ''}`,
-            images: ['https://via.placeholder.com/400x300?text=Piggy+and+Kay'], // Replace with your book image URL
+            images: ['https://via.placeholder.com/400x300?text=Piggy+and+Kay'],
           },
           unit_amount: bookPrice,
         },
