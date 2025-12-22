@@ -45,7 +45,7 @@ module.exports = async (req, res) => {
           product_data: {
             name: `Piggy & Kay: A Winter Sparkle (${qty} ${qty === 1 ? 'copy' : 'copies'})`,
             description: `Pre-order ${qty} book${qty > 1 ? 's' : ''}${discount > 0 ? ` - ${qty >= 5 ? '15%' : '10%'} discount applied` : ''}`,
-            images: ['https://via.placeholder.com/400x300?text=Piggy+and+Kay'],
+            images: ['https://piggy-and-kay.vercel.app/images/PiggyKayWS_Cover.png'],
           },
           unit_amount: bookPrice,
         },
@@ -70,6 +70,10 @@ module.exports = async (req, res) => {
     const session = await stripe.checkout.sessions.create({
       line_items: lineItems,
       mode: 'payment',
+      billing_address_collection: 'required',
+      shipping_address_collection: {
+        allowed_countries: ['US', 'CA'],
+      },
       success_url: `${process.env.FRONTEND_URL || DEFAULT_FRONTEND}/?success=true`,
       cancel_url: `${process.env.FRONTEND_URL || DEFAULT_FRONTEND}/?canceled=true`,
     });
