@@ -603,6 +603,11 @@ function PreOrderView({ userData, toSuccess }) {
             </span>
           </button>
 
+          {/* Delivery Timeline Note */}
+          <p className="text-xs text-slate-500 text-center leading-relaxed">
+            We want to get this right! Please allow 3–5 weeks for delivery on our first run. Thank you for your support!
+          </p>
+
           {/* Error Message */}
           {checkoutError && (
             <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg text-sm">
